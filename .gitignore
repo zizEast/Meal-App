@@ -1,1 +1,49 @@
 scss
+
+
+
+
+
+
+# git init
+# git add README.md
+# git commit -m "first commit"
+# git branch -M main
+# git remote add origin git@github.com:zizEast/prova-push.git
+# git push -u origin main(branch master)/ git push origin dev (branch 'dev' creato da noi)
+
+
+# git log per vedere tutti i commit  fatti
+
+
+
+# entrare in nuovo branch
+# git checkout -b nomebranch => entra in un nuovo branch
+# git merge nome  branch  per unire il nuovo branch
+
+
+
+# git reset per tornare indietro se hai fatto git add ma non vuoi aggiungere
+
+
+# git reset HEAD~1 per tornare indietro se hai fatto git commit (per eliminare l ' ultimo commit fatto)
+# per tornare indietro al commit che vuoi (git log prendi l'ASH del commit a cui vuoi tornare => git reset 'ash'
+# se vuoi proprio tornare fisicamente nel tuo progetto a quel commit => git reset --hard (ASH)
+
+
+
+
+# CHICCA: se non funziona il push prova sempre il force => git push -f origin ..
+
+
+# // delete branch locally
+# git branch -D localBranchName
+
+# // delete branch remotely
+# git push origin --delete remoteBranchName(guarda come è scritto su github)
+
+
+
+
+# git branch -a  => mostra i rami remoti locali
+# git fetch --prune => aggiorna i rami remoti locali con quelli remoti
