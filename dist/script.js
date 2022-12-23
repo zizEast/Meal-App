@@ -83,7 +83,6 @@ mealsW.addEventListener('click', (e) => {
             return false
         }
     })
-    console.log(card.id);
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${card.id}`)
     .then(res => res.json())
     .then(data => {
@@ -95,17 +94,19 @@ mealsW.addEventListener('click', (e) => {
 
 function generaPreview(meal) {
     console.log(meal);
-    const arrayIngredients=[]
+    const arrayIngredients=[];
+    const arrayIngredientsOnly= []
     let i = 2
     Object.keys(meal).forEach((key) => {
         if(key.startsWith("strIngredient") && meal[key] !== "" && !key.startsWith("strIngredient1")) {
             let ingrediente = `${meal[key]} - ${meal[`strMeasure${i-10}`]}`
             arrayIngredients.push(ingrediente)
+            arrayIngredientsOnly.push(meal[key])
         }
         i++
     })
     i=0
-    console.log(arrayIngredients);
+    console.log(arrayIngredientsOnly);
     preview.classList.add('--show')
     document.body.style.overflow='hidden'
     previewBox.innerHTML= `
@@ -115,11 +116,12 @@ function generaPreview(meal) {
        </div>
        <h3>Video : <a href=${meal.strYoutube}>${meal.strYoutube}</a> </h3>
        <h3>Istruzioni : <span>${meal.strInstructions}</span> </h3>
-       <h3>Ingredienti : <span>${meal.strIngredient1} - ${meal.strMeasure1}</span>
+       <h3>Ingredienti :<div class="cont"><span>${meal.strIngredient1} - ${meal.strMeasure1}</span> <img  src="https://www.themealdb.com/images/ingredients/${meal.strIngredient1}.png"></div>
        <ul>
-           ${arrayIngredients.map(ingrediente => {
+           ${arrayIngredients.map((ingrediente,i) => {
+            console.log(i);
             return `
-                <li>${ingrediente}</li>
+                <li><span> ${ingrediente}</span> <img src="https://www.themealdb.com/images/ingredients/${arrayIngredientsOnly[i]}.png" alt="" > </li>
             `
            }).join("")}
        </ul>
