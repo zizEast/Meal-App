@@ -54,27 +54,27 @@ function createCards(meals) {
 
 
 
+// mealsW.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     const card = e.path.find(item => {
+//         if(item.classList) {
+//             return item.classList.contains('card')
+//         }else {
+//             return false
+//         }
+//     })
+//     console.log(card.id);
+//     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${card.id}`)
+//     .then(res => res.json())
+//     .then(data => {
+//         meal=data.meals[0]
+//         generaPreview(meal)
+//     })
+// })
+
+
+
 mealsW.addEventListener('click', (e) => {
-    e.preventDefault()
-    const card = e.path.find(item => {
-        if(item.classList) {
-            return item.classList.contains('card')
-        }else {
-            return false
-        }
-    })
-    console.log(card.id);
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${card.id}`)
-    .then(res => res.json())
-    .then(data => {
-        meal=data.meals[0]
-        generaPreview(meal)
-    })
-})
-
-
-
-mealsW.addEventListener('touchstart', (e) => {
     e.preventDefault()
     const card = e.path.find(item => {
         if(item.classList) {
